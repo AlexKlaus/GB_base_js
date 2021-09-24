@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict!';
+        console.log(10 + 10 + "10");
+        console.log(10 + "10" + 10);
+        console.log(10 + 10 + +"10");
+        console.log(10 / -"");
+        console.log(10 / +"2,5");
+        /*
+        1. 10 складываем с 10, затем 20 складываем с строкой '10', происходит неявное преобразование числа
+        20 в строку, после чего конкатенация, результать строка '2010'
+        2. 10 + '10' = '1010', '1010' + 10 = '101010'
+        3. 10 + 10 = 20, 20 + +'10' = 30? +'10' - унарный плюс преобразует строку в число
+        4. -"" - унарный минус преобразует строку в число -0, 10 / -0 = -infinity
+        5. Результат NaN, т.к. унарный плюс не может преобразовать строку "2,5" в число, потому что в js
+        разделителем является точка, получем NaN. 10 / NaN = NaN.
+        */
+    </script>
+</body>
+
+</html>
