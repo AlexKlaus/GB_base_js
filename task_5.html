@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="task_4.js"></script>
+    <script>
+        'use strict'
+        function mathOperation(arg1, arg2, operation) {
+            switch (operation) {
+                case '+':
+                    alert(add(arg1, arg2))
+                    break
+                case '-':
+                    alert(sub(arg1, arg2))
+                    break
+                case '/':
+                    alert(div(arg1, arg2))
+                    break
+                case '*':
+                    alert(mul(arg1, arg2))
+                    break
+                default:
+                    alert('Неверная операция.')
+            }
+        }
+
+        let a = +(prompt('Введите a: '))
+        let b = +(prompt('Введите b: '))
+        let operation = prompt('Введите операцию: ')
+
+        mathOperation(a, b, operation)
+    </script>
+</body>
+
+</html>
