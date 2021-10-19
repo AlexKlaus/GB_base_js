@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        //ES5
+        function Post(author, text, date) {
+            this.author = author
+            this.text = text
+            this.date = date
+        }
+
+        Post.prototype.edit = function (text) {
+            this.text = text
+        }
+
+        function AttachedPost(author, text, date) {
+            Post.call(this, author, text, date)
+            this.highlighted = false
+        }
+
+        AttachedPost.prototype = Object.create(Post.prototype)
+        AttachedPost.prototype.constructor = AttachedPost
+
+        AttachedPost.prototype.makeTextHighLighted = function () {
+            this.highlighted = true
+        }
+
+        let new_post = new AttachedPost('Ivan', 'some text', '06.10.21')
+        new_post.edit('new text')
+        new_post.makeTextHighLighted()
+        console.log(new_post)  //{author: 'Ivan', text: 'new text', date: '06.10.21', highlighted: true}
+
+
+        //ES6
+        class PostES6 {
+            constructor(author, text, date) {
+                this.author = author
+                this.text = text
+                this.date = date
+            }
+            edit(text) {
+                this.text = text
+            }
+        }
+
+        class AttachedPostES6 extends PostES6 {
+            constructor(author, text, date) {
+                super(author, text, date)
+                this.highlighted = false
+            }
+            makeTextHighLighted() {
+                this.highlighted = true
+            }
+        }
+
+        let new_postES6 = new AttachedPostES6('Ivan', 'some text', '06.10.21')
+        new_postES6.edit('new text')
+        new_postES6.makeTextHighLighted()
+        console.log(new_postES6)  //{author: 'Ivan', text: 'new text', date: '06.10.21', highlighted: true}
+
+    </script>
+</body>
+
+</html>

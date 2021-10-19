@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        function objectFromNumber(num) {
+            num = parseInt(num)
+            if (!Number.isInteger(num)) {
+                console.log('Вы ввели не число')
+            } else if (num < 0 || num > 999) {
+                console.log('Число вне диапаззона [0, 999]')
+            } else {
+                let obj = {
+                    units: num % 10,
+                    tens: Math.floor(num % 100 / 10),
+                    hundreds: Math.floor(num / 100)
+                }
+                console.log(obj)
+            }
+        }
+        objectFromNumber(prompt('введите число'))
+    </script>
+</body>
+
+</html>
